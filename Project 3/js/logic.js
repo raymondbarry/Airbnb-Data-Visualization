@@ -1,6 +1,6 @@
 d3.csv("listings_clean.csv").then(function(data) {
 
-    var airbnb_map = L.map("map-id", {
+    var airbnb_map = L.map("map-container", {
         center: [34.05, -118.24],
         zoom: 13
       });
