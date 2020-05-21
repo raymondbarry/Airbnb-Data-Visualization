@@ -1,0 +1,190 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Superhost</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main-color.css" id="colors">
+
+</head>
+
+<body>
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+<!-- Header Container -->
+<header id="header-container">
+
+	<!-- Header -->
+	<div id="header">
+		<div class="container">
+			
+			<!-- Left Side Content -->
+			<div class="left-side">
+				
+				<!-- Logo -->
+				<div id="logo">
+					<a href="index.html"><img src="my_images/logo.jpg" alt=""></a>
+				</div>
+
+				<!-- Mobile Navigation -->
+				<div class="mmenu-trigger">
+					<button class="hamburger hamburger--collapse" type="button">
+						<span class="hamburger-box">
+							<span class="hamburger-inner"></span>
+						</span>
+					</button>
+				</div>
+
+				<!-- Main Navigation -->
+				<nav id="navigation" class="style-1">
+					<ul id="responsive">
+
+						<li>
+							<a href="introduction.html">About</a>
+						</li>
+
+						<li>
+							<a href="index.html">Host</a>
+						</li>
+						
+					</ul>
+				</nav>
+				<div class="clearfix"></div>
+				<!-- Main Navigation / End -->
+				
+			</div>
+			<!-- Left Side Content / End -->
+
+		</div>
+	</div>
+	<!-- Header / End -->
+
+</header>
+<div class="clearfix"></div>
+<!-- Header Container / End -->
+
+
+<!-- Map
+================================================== -->
+
+	<div class="main-search-inner">
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					
+					<div class="main-search-input">
+
+						<div class="main-search-input-item location">
+							<div id="autocomplete-container">
+								<input id="autocomplete-input" type="text" placeholder="Zip Code">
+							</div>
+							<a href="#"><i class="fa fa-map-marker"></i></a>
+						</div>
+						
+						<!-- <div class="main-search-input-item">
+							<select data-placeholder="Room Type" class="chosen-select" >	
+								<option>1 Room</option>
+								<option>2 Rooms</option>
+								<option>3 Rooms</option>
+								<option>4 Rooms</option>
+								<option>5 Rooms</option>
+								<option>6+ Rooms</option>
+							</select>
+						</div>
+						<div class="main-search-input-item">
+							<select data-placeholder="Room Type" class="chosen-select" >	
+								<option>Entire Place</option>
+								<option>Apartment</option>
+								<option>Private Room</option>
+								<option>Shared Room</option>
+							</select>
+						</div> -->
+
+						<button class="button">Search</button>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="fullwidth-home-map">
+	<div id="map-container"></div>
+    </div>
+
+    <!-- Scroll Enabling Button -->
+	<!-- <a href="#" id="scrollEnabling" title="Enable or disable scrolling on map">Enable Scrolling</a> -->
+</div>
+
+<!-- Charts -->
+
+<div id="plotprice"></div>
+<hr>
+<div id="plotrating"></div>
+<hr>
+<div id="plotcategory"></div>
+<hr>
+<div id="plotsunburst"></div> 
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="app.js"></script>
+
+<div class="copyrights">© 2020 Superhost. All Rights Reserved.</div>
+
+
+
+<!-- Script -->
+<!-- Google Autocomplete -->
+<script>
+  function initAutocomplete() {
+    var input = document.getElementById('autocomplete-input');
+    var autocomplete = new google.maps.places.Autocomplete(input);
+
+    autocomplete.addListener('place_changed', function() {
+      var place = autocomplete.getPlace();
+      if (!place.geometry) {
+        return;
+      }
+    });
+
+	if ($('.main-search-input-item')[0]) {
+	    setTimeout(function(){ 
+	        $(".pac-container").prependTo("#autocomplete-container");
+	    }, 300);
+	}
+}
+</script>
+
+<!-- Maps -->
+
+  <!-- D3 -->
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+
+  <!-- Leaflet JavaScript -->
+  <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+
+  <!-- Marker Cluster JS & CSS -->
+  <script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css">
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.Default.css">
+
+  <!-- API Key -->
+  <script defer type="text/javascript" src="js/config.js"></script>
+  <!-- Our JavaScript -->
+  <script defer type="text/javascript" src="js/logic.js"></script>
+
+</body>
+</html>
