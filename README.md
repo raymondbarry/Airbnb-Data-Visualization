@@ -1,7 +1,4 @@
 # Airbnb-Data-Visualization
-Project 2
-
-
 
   Listing a home on AirBnb in Los Angeles can be daunting for some considering how competitive the market can get. Thankfully by utilizing Javascript, Plotly, HTML and others, we can create a handy research tool. 
   
